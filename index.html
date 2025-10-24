@@ -87,6 +87,61 @@
             margin: 50px auto;
             padding: 0 25px;
         }
+        
+        /* Flight Details Section */
+        .flight-section {
+            background-color: var(--primary-navy);
+            color: var(--text-light);
+            border: 1px solid var(--secondary-blue);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px var(--shadow-subtle);
+            text-align: left;
+        }
+        .flight-section h3 {
+            margin-top: 0;
+            color: var(--accent-gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        .flight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .flight-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .flight-box h4 {
+            font-size: 1.4em;
+            color: var(--text-light);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .flight-box p {
+            margin: 0 0 10px 0;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .flight-box strong {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+        .flight-box .airline {
+            font-weight: 300;
+            font-size: 1em;
+            opacity: 0.8;
+            margin-top: 10px;
+            display: block;
+        }
 
         .info-section {
             background-color: var(--info-background);
@@ -147,21 +202,45 @@
         }
 
         .day-section {
-            margin-bottom: 60px;
+            margin-bottom: 20px; /* Reduced margin for tighter collapsible look */
         }
 
         .day-title {
             background-color: var(--secondary-blue);
             color: var(--text-light);
             padding: 25px 35px;
-            border-radius: 15px 15px 0 0;
+            border-radius: 15px; /* Rounded all corners */
             font-size: 2.2em;
             font-weight: 700;
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 4px 15px var(--shadow-subtle);
+            cursor: pointer; /* Make it clickable */
+            position: relative;
+            user-select: none; /* Prevent text selection */
+            transition: border-radius 0.3s ease;
         }
+        
+        .day-title.active {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .day-title::after {
+            content: '▼'; /* Down arrow for "open me" */
+            font-size: 0.6em;
+            line-height: 1;
+            position: absolute;
+            right: 35px;
+            transition: transform 0.3s ease;
+            transform: rotate(0deg); /* Start pointing down */
+        }
+
+        .day-title.active::after {
+            transform: rotate(-180deg); /* Point up for "close me" */
+        }
+
 
         .day-title span {
             font-size: 0.6em;
@@ -173,11 +252,21 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            padding: 30px 0;
+            
+            /* Collapsible styles */
+            max-height: 0;
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+            transition: max-height 0.7s ease-in-out, padding 0.5s ease-in-out;
+            
             background-color: #fcfdff;
             /* Slightly different background for activities */
             border-radius: 0 0 15px 15px;
             box-shadow: 0 8px 25px var(--shadow-subtle);
+            /* Add border to match title */
+            border: 1px solid var(--secondary-blue);
+            border-top: none;
         }
 
         .activity-card {
@@ -273,6 +362,10 @@
             .container {
                 margin: 30px auto;
             }
+            
+            .flight-grid {
+                grid-template-columns: 1fr;
+            }
 
             .info-section h3 {
                 font-size: 1.7em;
@@ -281,6 +374,10 @@
             .day-title {
                 font-size: 1.8em;
                 padding: 20px 25px;
+            }
+            
+            .day-title::after {
+                right: 25px;
             }
 
             .activity-card-grid {
@@ -333,6 +430,10 @@
                 font-size: 1.5em;
                 padding: 18px 20px;
             }
+            
+            .day-title::after {
+                right: 20px;
+            }
 
             .activity-card-grid {
                 grid-template-columns: 1fr;
@@ -358,12 +459,32 @@
 <body>
 
     <div class="header-hero">
-        <h1>Urodzinowa Podróż do Dubaju <br>& Abu Zabi</h1>
+        <h1>Urodzinowa Podróż do Dubaju</h1>
         <h2>Plan podróży</h2>
         <p>20 - 27 Stycznia 2026</p>
     </div>
 
     <div class="container">
+    
+        <div class="flight-section">
+            <h3>Szczegóły Podróży</h3>
+            <div class="flight-grid">
+                <div class="flight-box">
+                    <h4>Lot Wylotowy</h4>
+                    <p><strong>Wtorek, 20 Stycznia</strong></p>
+                    <p><strong>11:35</strong> Kraków (KRK) ➔ <strong>20:15</strong> Abu Zabi (AUH)</p>
+                    <p>Czas podróży: 5 godz. 40 min</p>
+                    <span class="airline">Linie lotnicze: Wizz Air</span>
+                </div>
+                <div class="flight-box">
+                    <h4>Lot Powrotny</h4>
+                    <p><strong>Wtorek, 27 Stycznia</strong></p>
+                    <p><strong>20:50</strong> Abu Zabi (AUH) ➔ <strong>23:55</strong> Kraków (KRK)</p>
+                    <p>Czas podróży: 6 godz. 5 min</p>
+                    <span class="airline">Linie lotnicze: Wizz Air</span>
+                </div>
+            </div>
+        </div>
 
         <div class="info-section">
             <h3>Ważne Informacje Przed Podróżą</h3>
@@ -383,8 +504,7 @@
                     </ul>
                 </li>
                 <li><strong>Zarezerwuj z wyprzedzeniem:</strong> Bilety na <a href="https://www.burjkhalifa.ae/en/tickets/"
-                        target="_blank">Burj Khalifa</a> oraz do <a href="https://museumofthefuture.ae/en/book"
-                        target="_blank">Muzeum Przyszłości</a> wyprzedają się z wielotygodniowym wyprzedzeniem. Nie
+                        target="_blank">Burj Khalifa</a> wyprzedają się z wielotygodniowym wyprzedzeniem. Nie
                     zwlekaj!</li>
                 <li><strong>Aplikacje:</strong> Pobierz <strong>Uber</strong> oraz <strong>Careem</strong> (lokalna
                     aplikacja do przejazdów). Do transportu publicznego używaj Google Maps (jest zintegrowane z RTA).
@@ -767,7 +887,7 @@
                     <div class="activity-card-content">
                         <h4>Palm Monorail do Atlantis The Palm</h4>
                         <p>Przejedź się kolejką Palm Monorail (użyj karty Nol) do ostatniego przystanku. Ciesz się
-                            wspaniałimi widokami na "liściu" palmy i zrób zdjęcia kultowego hotelu Atlantis, The Palm.
+                            wspaniałymi widokami na "liściu" palmy i zrób zdjęcia kultowego hotelu Atlantis, The Palm.
                         </p>
                         <div class="activity-card-info">
                             <div class="info-item"><strong>Godzina:</strong> 11:30 - 13:30</div>
@@ -1073,6 +1193,45 @@
         </div>
 
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dayTitles = document.querySelectorAll('.day-title');
+
+            // Open Day 1 by default
+            if (dayTitles.length > 0) {
+                const firstTitle = dayTitles[0];
+                const firstGrid = firstTitle.nextElementSibling;
+                
+                firstTitle.classList.add('active'); // Show "up" arrow
+                if (firstGrid && firstGrid.classList.contains('activity-card-grid')) {
+                    // Set initial max-height for the active one to animate open
+                    firstGrid.style.maxHeight = firstGrid.scrollHeight + 'px';
+                    firstGrid.style.paddingTop = '30px';
+                    firstGrid.style.paddingBottom = '30px';
+                }
+            }
+
+            dayTitles.forEach(title => {
+                title.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+
+                    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                        // It's open, so close it
+                        content.style.maxHeight = '0px';
+                        content.style.paddingTop = '0';
+                        content.style.paddingBottom = '0';
+                    } else {
+                        // It's closed, so open it
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.style.paddingTop = '30px';
+                        content.style.paddingBottom = '30px';
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 
