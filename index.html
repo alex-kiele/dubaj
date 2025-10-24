@@ -87,7 +87,7 @@
             margin: 50px auto;
             padding: 0 25px;
         }
-        
+
         /* Flight Details Section */
         .flight-section {
             background-color: var(--primary-navy);
@@ -208,7 +208,8 @@
         .day-title {
             background-color: var(--secondary-blue);
             color: var(--text-light);
-            padding: 25px 35px;
+            /* Adjusted padding to give space for arrow */
+            padding: 25px 60px 25px 35px; 
             border-radius: 15px; /* Rounded all corners */
             font-size: 2.2em;
             font-weight: 700;
@@ -232,7 +233,7 @@
             font-size: 0.6em;
             line-height: 1;
             position: absolute;
-            right: 35px;
+            right: 25px; /* Moved arrow slightly to the left */
             transition: transform 0.3s ease;
             transform: rotate(0deg); /* Start pointing down */
         }
@@ -264,9 +265,8 @@
             /* Slightly different background for activities */
             border-radius: 0 0 15px 15px;
             box-shadow: 0 8px 25px var(--shadow-subtle);
-            /* Add border to match title */
-            border: 1px solid var(--secondary-blue);
-            border-top: none;
+            /* Removed border around collapsed section */
+            border: none; 
         }
 
         .activity-card {
@@ -373,7 +373,7 @@
 
             .day-title {
                 font-size: 1.8em;
-                padding: 20px 25px;
+                padding: 20px 55px 20px 25px; /* Adjusted padding */
             }
             
             .day-title::after {
@@ -428,7 +428,7 @@
 
             .day-title {
                 font-size: 1.5em;
-                padding: 18px 20px;
+                padding: 18px 50px 18px 20px; /* Adjusted padding */
             }
             
             .day-title::after {
@@ -459,7 +459,7 @@
 <body>
 
     <div class="header-hero">
-        <h1>Urodzinowa Podróż do Dubaju</h1>
+        <h1>Urodzinowa Podróż do Dubaju <br>& Abu Zabi</h1>
         <h2>Plan podróży</h2>
         <p>20 - 27 Stycznia 2026</p>
     </div>
@@ -1019,71 +1019,75 @@
         <!-- Day 7 -->
         <div class="day-section">
             <div class="day-title">
-                Dzień 7: Wycieczka do Abu Zabi
+                Dzień 7: Dzień Relaksu i Plaża
                 <span>Poniedziałek, 26 Stycznia 2026</span>
             </div>
             <div class="activity-card-grid">
-                <div class="activity-card">
-                    <img src="https://media.istockphoto.com/id/1318141602/photo/an-aerial-shot-of-kite-beach-in-dubai-filled-with-kite-surfers-and-their-colorful-kites.jpg?s=612x612&w=0&k=20&c=OecUSqTwpRLW7mtL45RylOynutTnQuXsVDvaO1OW-ac="
-                        alt="Nowoczesny autobus międzymiastowy na autostradzie" class="activity-card-image">
+               <div class="activity-card">
+                    <img src="https://placehold.co/400x220/A8D5E2/0F1D38?text=Relaks+w+Hotelu" alt="Basen hotelowy lub spokojny poranek" class="activity-card-image">
                     <div class="activity-card-content">
-                        <h4>Plażowanie na Kite Beach</h4>
-                        <p>Udajcie się na słynną plażę Kite Beach. Opalanie sie, kąpiel w morzu i obserwowanie
-                            kitesurferów.</p>
+                        <h4>Spokojny Poranek</h4>
+                        <p>Po intensywnym tygodniu, zrelaksujcie się rano w hotelu. Skorzystajcie z basenu, spakujcie się na spokojnie lub wybierzcie się na ostatnie, niespieszne zakupy do Mall of the Emirates.</p>
                         <div class="activity-card-info">
-                            <div class="info-item"><strong>Godzina:</strong> 11:30 - 16:00</div>
-                            <div class="info-item"><strong>Transport:</strong><strong>1. Uber/Careem:</strong>
-                                Najłatwiej i najszybciej, ok. 15-20 min jazdy.<br><strong>2. Autobus:</strong> Podejdź
-                                15 min do dworca autobusowego przy Mall of the Emirates. Wsiądź w autobus nr
-                                81 (kierunek: The Dubai Mall). Wysiądź na przystanku "Manara, Enoc 1" i
-                                przejdź ok. 10-15 min pieszo na plażę.</div>
-                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~25-35 AED / ~25-35
-                                    PLN (Uber)</span><br><span class="cost">~3-5 AED / ~3-5 PLN (Autobus)</span></div>
-                            <div class="info-item"><a href="https://www.google.com/maps/place/Kite+Beach"
-                                    target="_blank">Mapa Kite Beach</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="activity-card">
-                    <img src="https://thumbs.dreamstime.com/b/food-trucks-kite-beach-jumeirah-dubai-uae-food-trucks-kite-beach-jumeirah-dubai-uae-279833586.jpg"
-                        alt="Lokalny autobus w Abu Zabi" class="activity-card-image">
-                    <div class="activity-card-content">
-                        <h4>Lunch z Food Trucka</h4>
-                        <p>Kite Beach słynie ze świetnych food trucków. Spróbujcie słynnych burgerów "Salt" lub
-                            wybierzcie coś innego z bogatej oferty. Niedrogo, jedzone na plaży.</p>
-                        <div class="activity-card-info">
-                            <div class="info-item"><strong>Godzina:</strong> 13:30 - 14:30</div>
+                            <div class="info-item"><strong>Godzina:</strong> 09:00 - 11:00</div>
                             <div class="info-item"><strong>Transport:</strong> Pieszo</div>
-                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~40 - 70 AED / ~40 -
-                                    69 PLN</span></div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> N/A</div>
                             <div class="info-item"></div>
                         </div>
                     </div>
                 </div>
                 <div class="activity-card">
-                    <img src="https://www.travelvui.com/wp-content/uploads/2016/08/Souk-Madinat-Jumeirah-Dubai-860x573.jpg"
-                        alt="Wielki Meczet Szejka Zajida, imponująca architektura z kopułami"
-                        class="activity-card-image">
+                    <img src="https://media.istockphoto.com/id/1318141602/photo/an-aerial-shot-of-kite-beach-in-dubai-filled-with-kite-surfers-and-their-colorful-kites.jpg?s=612x612&w=0&k=20&c=OecUSqTwpRLW7mtL45RylOynutTnQuXsVDvaO1OW-ac=" alt="Plaża Kite Beach w Dubaju z latawcami" class="activity-card-image">
                     <div class="activity-card-content">
-                        <h4>Pożegnalna Kolacja w Souk Madinat Jumeirah</h4>
-                        <p>Po powrocie do hotelu i odświeżeniu się, wybierzcie się na wyjątkową, pożegnalną kolację do
-                            Souk Madinat Jumeirah. To magiczne miejsce z kanałami (nazywane "Wenecją Dubaju"), targiem i
-                            restauracjami z widokiem na Burj Al Arab.</p>
+                        <h4>Plażowanie na Kite Beach</h4>
+                        <p>Udajcie się na słynną plażę Kite Beach. To idealne miejsce na relaks, kąpiel w morzu i obserwowanie kitesurferów. Atmosfera jest tu bardzo swobodna.</p>
                         <div class="activity-card-info">
-                            <div class="info-item"><strong>Godzina:</strong> 18:30 - 21:00</div>
-                            <div class="info-item"><strong>Transport:</strong><strong>1. Uber/Careem:</strong>
-                                Bardzo blisko, ok. 10-15 min jazdy.<br><strong>2. Autobus:</strong> Z dworca Mall of the
-                                Emirates autobus nr 81. Wysiądź na przystanku "Burj Al Arab Hotel" i
-                                przejdź ok. 10 min pieszo.</div>
-                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~25 AED / ~25 PLN
-                                    (Uber)<br>+ 150-250 AED / ~149-248 PLN (Kolacja)</span></div>
-                            <div class="info-item"><a
-                                    href="https://www.google.com/maps/search/Visit%20the%20Souk%20Madinat%20Jumeirah,%20Dubai,%20United%20Arab%20Emirates"
-                                    target="_blank">Souk Madinat</a></div>
+                            <div class="info-item"><strong>Godzina:</strong> 11:30 - 16:00</div>
+                            <div class="info-item"><strong>Transport:</strong> <br><strong>1. Uber/Careem (Zalecane):</strong> Najłatwiej i najszybciej, ok. 15-20 min jazdy.<br><strong>2. Autobus:</strong> Podejdź 15 min do dworca autobusowego przy Mall of the Emirates. Wsiądź w autobus <strong>nr 81</strong> (kierunek: The Dubai Mall). Wysiądź na przystanku "Manara, Enoc 1" i przejdź ok. 10-15 min pieszo na plażę.</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~25-35 AED / ~25-35 PLN (Uber)</span><br><span class="cost">~3-5 AED / ~3-5 PLN (Autobus)</span></div>
+                            <div class="info-item"><a href="https://www.google.com/maps/place/Kite+Beach" target="_blank">Mapa Kite Beach</a></div>
                         </div>
                     </div>
                 </div>
-
+                <div class="activity-card">
+                    <img src="https://thumbs.dreamstime.com/b/food-trucks-kite-beach-jumeirah-dubai-uae-food-trucks-kite-beach-jumeirah-dubai-uae-279833586.jpg" alt="Food trucki na plaży Kite Beach" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Lunch z Food Trucka</h4>
+                        <p>Kite Beach słynie ze świetnych food trucków. Spróbujcie słynnych burgerów "Salt" lub wybierzcie coś innego z bogatej oferty. Niedrogo i pysznie, jedzone na plaży.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 13:30 - 14:30</div>
+                            <div class="info-item"><strong>Transport:</strong> Pieszo</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~40 - 70 AED / ~40 - 69 PLN</span></div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://www.travelvui.com/wp-content/uploads/2016/08/Souk-Madinat-Jumeirah-Dubai-860x573.jpg" alt="Nastrojowy Souk Madinat Jumeirah nocą" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Pożegnalna Kolacja w Souk Madinat Jumeirah</h4>
+                        <p>Po powrocie do hotelu i odświeżeniu się, wybierzcie się na wyjątkową, pożegnalną kolację do Souk Madinat Jumeirah. To magiczne miejsce z kanałami (nazywane "Wenecją Dubaju"), targiem i restauracjami z widokiem na Burj Al Arab.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 18:30 - 21:00</div>
+                            <div class="info-item"><strong>Transport:</strong> <br><strong>1. Uber/Careem (Zalecane):</strong> Bardzo blisko, ok. 10-15 min jazdy.<br><strong>2. Autobus:</strong> Z dworca Mall of the Emirates autobus <strong>nr 81</strong>. Wysiądź na przystanku "Burj Al Arab Hotel" i przejdź ok. 10 min pieszo.</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~25 AED / ~25 PLN (Transport) + 150-250 AED / ~149-248 PLN (Kolacja)</span></div>
+                            <div class="info-item"><a href="https://www.google.com/maps/search/Visit%20the%20Souk%20Madinat%20Jumeirah,%20Dubai,%20United%20Arab%20Emirates" target="_blank">Souk Madinat</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://placehold.co/400x220/4A5C70/FFFFFF?text=Taks%C3%B3wka+Noc%C4%85" alt="Taksówka nocą wracająca do hotelu" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Powrót do Hotelu</h4>
+                        <p>Po kolacji i spacerze po Souk Madinat, wróćcie do hotelu Uberem/Careem.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> ok. 21:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Uber/Careem</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~25-30 AED / ~25-30 PLN</span></div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1236,3 +1240,4 @@
 </body>
 
 </html>
+
