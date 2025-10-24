@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podróż do Dubaju</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #0F1D38;
+            /* Deep Navy Blue */
+            --secondary-blue: #2A4D80;
+            /* Muted Blue */
+            --accent-gold: #D4AF37;
+            /* Gold for accents */
+            --text-light: #F0F4F8;
+            /* Off-white for light text */
+            --text-dark: #333;
+            /* Dark gray for main text */
+            --background-light: #F8F9FA;
+            /* Lightest gray background */
+            --card-background: #FFFFFF;
+            /* White for cards */
+            --border-light: #E0E6EE;
+            /* Light border color */
+            --shadow-subtle: rgba(0, 0, 0, 0.08);
+            --shadow-strong: rgba(0, 0, 0, 0.15);
+            --info-background: #EBF5F0;
+            /* Light green-blue for info boxes */
+            --info-border: #A7D9BF;
+            /* Green-blue border */
+            --highlight-red: #D9534F;
+            /* Red for important warnings */
+            --currency-rate: 1 AED=0.99 PLN;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .header-hero {
+            background: linear-gradient(rgba(15, 29, 56, 0.85), rgba(15, 29, 56, 0.85)), url() no-repeat center center / cover;
+            color: var(--text-light);
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow-strong);
+            position: relative;
+        }
+
+        .header-hero h1 {
+            font-family: 'Playfair Display', serif;
+            margin: 0 0 15px 0;
+            font-size: 3.5em;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+        }
+
+        .header-hero h2 {
+            font-family: 'Playfair Display', serif;
+            margin: 0 0 10px 0;
+            font-size: 2em;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .header-hero p {
+            font-size: 1.3em;
+            font-weight: 300;
+            opacity: 0.9;
+            color: var(--text-light);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 50px auto;
+            padding: 0 25px;
+        }
+
+        .info-section {
+            background-color: var(--info-background);
+            border: 1px solid var(--info-border);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 25px var(--shadow-subtle);
+            text-align: left;
+        }
+
+        .info-section h3 {
+            margin-top: 0;
+            color: var(--secondary-blue);
+            font-size: 2em;
+            font-weight: 600;
+            border-bottom: 3px solid var(--secondary-blue);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .info-section ul {
+            padding-left: 30px;
+            margin: 0;
+            list-style-type: '🌟 ';
+            /* Custom bullet point */
+        }
+
+        .info-section li {
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .info-section li strong {
+            color: var(--primary-navy);
+            font-weight: 700;
+        }
+
+        .info-section a {
+            color: var(--secondary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .info-section a:hover {
+            text-decoration: underline;
+        }
+
+        .currency-info {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-top: 20px;
+            color: var(--accent-gold);
+            text-align: right;
+            border-top: 1px dashed var(--info-border);
+            padding-top: 15px;
+        }
+
+        .day-section {
+            margin-bottom: 60px;
+        }
+
+        .day-title {
+            background-color: var(--secondary-blue);
+            color: var(--text-light);
+            padding: 25px 35px;
+            border-radius: 15px 15px 0 0;
+            font-size: 2.2em;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px var(--shadow-subtle);
+        }
+
+        .day-title span {
+            font-size: 0.6em;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .activity-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 30px 0;
+            background-color: #fcfdff;
+            /* Slightly different background for activities */
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 8px 25px var(--shadow-subtle);
+        }
+
+        .activity-card {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px var(--shadow-subtle);
+        }
+
+        .activity-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .activity-card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-card-content h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6em;
+            color: var(--primary-navy);
+            margin: 0 0 15px 0;
+            line-height: 1.3;
+        }
+
+        .activity-card-content p {
+            font-size: 0.95em;
+            color: var(--medium-gray);
+            margin-bottom: 15px;
+        }
+
+        .activity-card-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 15px;
+            margin-top: auto;
+            /* Push info to bottom */
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-light);
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 0.9em;
+            color: var(--secondary-blue);
+            margin-bottom: 3px;
+        }
+
+        .info-item span {
+            font-size: 1em;
+            color: var(--text-dark);
+            word-wrap: break-word;
+        }
+
+        .info-item a {
+            font-size: 1em;
+            word-wrap: break-word;
+        }
+
+        .info-item span.cost {
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        @media (max-width: 992px) {
+            .header-hero h1 {
+                font-size: 2.8em;
+            }
+
+            .header-hero h2 {
+                font-size: 1.6em;
+            }
+
+            .header-hero p {
+                font-size: 1.1em;
+            }
+
+            .container {
+                margin: 30px auto;
+            }
+
+            .info-section h3 {
+                font-size: 1.7em;
+            }
+
+            .day-title {
+                font-size: 1.8em;
+                padding: 20px 25px;
+            }
+
+            .activity-card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .activity-card-image {
+                height: 180px;
+            }
+
+            .activity-card-content h4 {
+                font-size: 1.4em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-hero {
+                padding: 60px 15px;
+            }
+
+            .header-hero h1 {
+                font-size: 2.2em;
+            }
+
+            .header-hero h2 {
+                font-size: 1.4em;
+            }
+
+            .header-hero p {
+                font-size: 1em;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .info-section {
+                padding: 20px;
+            }
+
+            .info-section h3 {
+                font-size: 1.5em;
+            }
+
+            .info-section li {
+                font-size: 1em;
+            }
+
+            .day-title {
+                font-size: 1.5em;
+                padding: 18px 20px;
+            }
+
+            .activity-card-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .activity-card-image {
+                height: 220px;
+            }
+
+            .activity-card-content h4 {
+                font-size: 1.3em;
+            }
+
+            .activity-card-info {
+                grid-template-columns: 1fr;
+                /* Stack info items on small screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header-hero">
+        <h1>Urodzinowa Podróż do Dubaju <br>& Abu Zabi</h1>
+        <h2>Plan podróży</h2>
+        <p>20 - 27 Stycznia 2026</p>
+    </div>
+
+    <div class="container">
+
+        <div class="info-section">
+            <h3>Ważne Informacje Przed Podróżą</h3>
+            <ul>
+                
+                <li><strong>Transfer z Lotniska (AUH):</strong> Lądujesz na Międzynarodowym Lotnisku Zayed (AUH) w Abu
+                    Zabi, które jest oddalone o 1.5 - 2 godziny jazdy od Twojego hotelu w Dubaju. Plan uwzględnia ten
+                    transfer w Dniu 1 i Dniu 8.</li>
+                <li><strong>Transport Publiczny w Dubaju (Karta Nol):</strong> Po przyjeździe na dowolną stację metra w
+                    Dubaju, kup <strong>Srebrną Kartę Nol</strong>.
+                    <ul>
+                        <li><strong>Koszt:</strong> 25 AED (~25 PLN) - w tym 19 AED do wykorzystania na przejazdy.</li>
+                        <li><strong>Użycie:</strong> Płacisz zbliżeniowo za Metro, Tramwaje i Autobusy RTA.</li>
+                        <li><strong>Więcej info:</strong> <a
+                                href="https://www.rta.ae/wps/portal/rta/ae/public-transport/nol/nol-card"
+                                target="_blank">Oficjalna strona Karty Nol</a></li>
+                    </ul>
+                </li>
+                <li><strong>Zarezerwuj z wyprzedzeniem:</strong> Bilety na <a href="https://www.burjkhalifa.ae/en/tickets/"
+                        target="_blank">Burj Khalifa</a> oraz do <a href="https://museumofthefuture.ae/en/book"
+                        target="_blank">Muzeum Przyszłości</a> wyprzedają się z wielotygodniowym wyprzedzeniem. Nie
+                    zwlekaj!</li>
+                <li><strong>Aplikacje:</strong> Pobierz <strong>Uber</strong> oraz <strong>Careem</strong> (lokalna
+                    aplikacja do przejazdów). Do transportu publicznego używaj Google Maps (jest zintegrowane z RTA).
+                </li>
+                <li><strong>Hotel:</strong> Grand Excelsior Hotel Al Barsha, Dubaj. <a
+                        href="https://www.google.com/maps/place/Grand+Excelsior+Hotel+Al+Barsha/@25.115858,55.197793,15z/data=!4m9!3m8!1s0x3e5f6b8b0e649033:0x1b1f137e3c3b06bc!5m2!4m1!1i2!8m2!3d25.115858!4d55.197793!16s%2Fg%2F1v_c1d_9?hl=en"
+                        target="_blank">Zobacz na Google Maps</a></li>
+            </ul>
+            <p class="currency-info">Kurs Walutowy na Dziś: <strong>1 AED = 0.99 PLN</strong></p>
+        </div>
+
+        <!-- Day 1 -->
+        <div class="day-section">
+            <div class="day-title">
+                Dzień 1: Przylot i Transfer do Dubaju
+                <span>Wtorek, 20 Stycznia 2026</span>
+            </div>
+            <div class="activity-card-grid">
+                <div class="activity-card">
+                    <img src="https://www.etihad.com/content/dam/eag/etihadairways/etihadcom/2025/global/products/abu-dhabi/zayed-international-airport/sana-al-nour-balcony.jpg?imwidth=480&imdensity=2.625"
+                        alt="Terminal lotniska Zayed International Airport (AUH)" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Przylot na Międzynarodowe Lotnisko Zayed (AUH)</h4>
+                        <p>Po przylocie w Abu Zabi przejdź odprawę imigracyjną, odbierz bagaż. Rozważ zakup lokalnej
+                            karty SIM (ok. 100 AED).</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 20:15</div>
+                            <div class="info-item"><strong>Transport:</strong> N/A</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~100 AED / ~99 PLN
+                                    (opcjonalna karta SIM)</span></div>
+                            <div class="info-item"><a href="https://maps.app.goo.gl/dAiRXaJMy9Jk7w4WA"
+                                    target="_blank">Mapa Lotniska AUH</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://podrozezhubertem.pl/wp-content/uploads/2023/10/Lotnisko-Abu-Dhabi-jak-dostac-sie-do-dubaju.jpg"
+                        alt="Panorama Dubaju nocą z widocznymi wieżowcami" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Transfer do Hotelu w Dubaju</h4>
+                        <p><strong>Opcja 1 (Zalecana):</strong> Uber/Careem – najszybszy i najwygodniejszy sposób.<br>
+                            <strong>Opcja 2 (Budżetowa):</strong> Autobus E102 do Ibn Battuta, potem taksówka do hotelu
+                            .
+                        </p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 21:15 - 23:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Uber/Careem lub Bus+Taxi</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost"> </span><span class="cost">Bus+Taxi: ~70 AED / ~69 PLN </span>
+                            </div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/504138826.jpg?k=a21d4b1d28b0d639312ed933fb75dd53b65fc722cd4912264124a8e7171f1af6&o=&hp=1"
+                        alt="Recepcja hotelu Grand Excelsior Hotel Al Barsha" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Zakwaterowanie i Późna Kolacja</h4>
+                        <p>Zameldowanie w Grand Excelsior Hotel Al Barsha. Szybki posiłek (obsługa hotelowa lub pobliski
+                            lokal 24/7 w Al Barsha).</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 23:00 - 23:30</div>
+                            <div class="info-item"><strong>Transport:</strong> N/A</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">Kolacja: ~50-100 AED / ~50-99
+                                    PLN</span></div>
+                            <div class="info-item"><a href="https://www.gehotels.com/grand-excelsior-hotel-al-barsha/"
+                                    target="_blank">Strona Hotelu</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-section">
+            <div class="day-title">
+                Dzień 2: Nowoczesny Dubaj – Mall & Marina
+                <span>Środa, 21 Stycznia 2026</span>
+            </div>
+            <div class="activity-card-grid">
+                <div class="activity-card">
+                    <img src="https://previews.123rf.com/images/creativefamily/creativefamily1906/creativefamily190600131/137009772-dubai-united-arab-emirates-june-3-2018-interior-of-the-mall-of-the-emirates-one-of-the-largest.jpg"
+                        alt="Wnętrze Mall of the Emirates z widokiem na Ski Dubai" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Mall of the Emirates & Ski Dubai</h4>
+                        <p>Spacer z hotelu. Kup Srebrną Kartę Nol na stacji metra. Zwiedź centrum handlowe i zobacz Ski
+                            Dubai – kryty stok narciarski (widok z galerii jest bezpłatny).</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 10:00 - 13:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Pieszo (~10-15 min)</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">25 AED / ~25 PLN
+                                    (Karta Nol)</span></div>
+                            <div class="info-item"><a href="https://www.malloftheemirates.com/en" target="_blank">Mall
+                                    of the Emirates</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://b.zmtcdn.com/data/pictures/chains/8/200428/485e69a3f3ae707d6e679ce1c834b8e7_featured_v2.jpg"
+                        alt="Strefa gastronomiczna w nowoczesnym centrum handlowym" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Lunch w Mall of the Emirates</h4>
+                        <p>Zjedz lunch w jednej z licznych restauracji lub w strefie gastronomicznej  w Mall of the Emirates. Bogaty wybór kuchni.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 13:00 - 14:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Pieszo</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">35 - 50 AED / ~35 -
+                                    50 PLN</span></div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://www.visitdubai.com/-/media/images/leisure/neighbourhood-pages/jbr/jbr-det.jpg"
+                        alt="Panorama Dubai Marina z jachtami i wieżowcami" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Dubai Marina & Jumeirah Beach Residence (JBR)</h4>
+                        <p>Przejdź się wzdłuż malowniczego Dubai Marina Walk, a następnie na "The Walk" w JBR. Ciesz się
+                            tętniącą życiem atmosferą, publiczną plażą i widokami na Ain Dubai.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 14:00 - 18:30</div>
+                            <div class="info-item"><strong>Transport:</strong> Metro (Czerwona Linia) z Mall of Emirates
+                                do Sobha Realty</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~10 AED / ~10 PLN (w
+                                    obie strony)</span></div>
+                            <div class="info-item"><a href="https://share.google/n8pZUwe6AJg0Punqx"
+                                    target="_blank">Dubai
+                                    The Walk at JBR</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://d1snrxh3s61e7p.cloudfront.net/media/CACHE/images/venues/47d6b3fd-b31d-4c1d-8595-1078075a7655/the-walk-jbr.jpg"
+                        alt="Restauracja na świeżym powietrzu na JBR z widokiem na miasto" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Kolacja na JBR</h4>
+                        <p>Wybierz jedną z wielu restauracji wzdłuż "The Walk" w JBR. To idealne miejsce na wieczorne
+                            zwiedzanie i relaks.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 18:30 - 20:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Pieszo</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">100 - 180 AED / ~99
+                                    - 178 PLN za osobę</span></div>
+                            <div class="info-item"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://cdn.twocontinents.com/metro_w_dubaju_wskazowki_dotyczace_podrozowania_metrem_ef6b8dd051.jpg"
+                        alt="Nowoczesny pociąg metra w Dubaju" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Powrót do Hotelu</h4>
+                        <p>Wróć na stację metra Sobha Realty, a następnie Czerwoną Linią na północ do stacji Mall of the
+                            Emirates.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> ok. 20:30</div>
+                            <div class="info-item"><strong>Transport:</strong> Metro (Czerwona Linia)</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">(w cenie biletu
+                                    powrotnego)</span></div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-section">
+            <div class="day-title">
+                Dzień 3: Stary Dubaj
+                <span>Czwartek, 22 Stycznia 2026</span>
+            </div>
+            <div class="activity-card-grid">
+                <div class="activity-card">
+                    <img src="https://www.tedyiowedy.pl/wp-content/uploads/2022/01/20211230T112436__R9A7232-1024x683.jpg"
+                        alt="Tradycyjna architektura Al Fahidi Historical Neighbourhood z wieżami wiatrowymi"
+                        class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Odkryj Stary Dubaj (Al Fahidi & Souki)</h4>
+                        <p>Przejdź się po historycznej dzielnicy Al Fahidi. (Opcjonalnie: Przepłyń tradycyjną łodzią
+                            Abra - 1 AED
+                            gotówką przez Dubai Creek.) Zwiedź tętniący życiem Targ Przypraw i Targ Złota w
+                            Deirze.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 10:00 - 14:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Metro: Czerwona Linia do
+                                BurJuman przesiadka na Zieloną Linię do Al Fahidi.
+                            </div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~15 AED / ~15 PLN
+                                    (metro)<br> + 1 AED / ~1 PLN (łodka)</span></div>
+                            <div class="info-item"><a
+                                    href="https://www.visitdubai.com/en/-/media/Images/pdf/2023/dubai-historic-district-map/dubai-historic-district-map-en.pdf"
+                                    target="_blank">Mapa Al Fahidi</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://www.mercatoshoppingmall.com/wp-content/uploads/2021/12/Arabian-Tea-House.jpg"
+                        alt="Tradycyjne dania emirackie w restauracji Arabian Tea House" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Lunch w Starym Dubaju</h4>
+                        <p>Zjedz lunch w klimatycznej <strong>Arabian Tea House (Arabska herbaciarnia)</strong> (Al
+                            Fahidi) lub spróbuj
+                            autentycznej, niedrogiej shawarmy (kebab) z lokalnej kafeterii w Deirze.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 14:00 - 15:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Pieszo</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">30 - 80 AED / ~30 -
+                                    79 PLN</span></div>
+                            <div class="info-item"><a href="https://arabianteahouse.com/" target="_blank">Arabian Tea
+                                    House</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=2/tour_img/6345448dbe447.jpeg"
+                        alt="Restauracja na świeżym powietrzu na JBR z widokiem na miasto" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Rejs jachtem po Marinie</h4>
+                        <p>Po zwiedzaniu Starego Dubaju, wróćcie do hotelu na chwilę odpoczynku. Wieczorem udajcie się
+                            do Dubai Marina na specjalny urodzinowy rejs. świętowanie z widokami na wieżowce!
+                        </p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 19:00 - 20:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Metro do Mariny (do stacji Sobha Realty)
+                            </div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">PREZENT</span></div>
+                            <div class="info-item"><a
+                                    href="https://www.getyourguide.com/dubai-l173/dubai-the-luxury-yacht-tour-with-live-bbq-option-and-drinks-t432231/?ranking_uuid=befae1aa-4518-48fb-b37c-12d75367c716&date_from=2026-01-25&date_to=2026-01-25"
+                                    target="_blank">cdn</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://cdn.techinasia.com/wp-content/uploads/2024/12/1734778019_shutterstock_2534108955-750x563.jpg"
+                        alt="Nowoczesna stacja metra w Dubaju" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Powrót do Hotelu po Rejsie</h4>
+                        <p>Po rejsie z kolacją, najłatwiej będzie wrócić do hotelu Uberem lub Careem bezpośrednio z
+                            Mariny.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> ok. 21:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Uber/Careem</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~30-40 AED / ~30-40
+                                    PLN</span></div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-section">
+            <div class="day-title">
+                Dzień 4: Ikony Downtown – Burj Khalifa i Fontanny
+                <span>Piątek, 23 Stycznia 2026</span>
+            </div>
+            <div class="activity-card-grid">
+                <div class="activity-card">
+                    <img src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/12/OT0X7Rqf-the-dubai-mall-reopen-1.jpg"
+                        alt="Wnętrze The Dubai Mall z dużą przestrzenią handlową" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>The Dubai Mall & Akwarium w Dubaju</h4>
+                        <p>Uwaga: W piątki metro startuje później (ok. 10:00). Zwiedź największe centrum handlowe na
+                            świecie. Zobacz olbrzymi zbiornik Akwarium (darmowe z zewnątrz) i Wodospad
+                            "Ludzi" (Human Waterfall).</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 11:00 - 16:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Metro: Czerwona Linia do Burj
+                                Khalifa/Dubai Mall</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~10 AED / ~10 PLN (w
+                                    obie strony)</span></div>
+                            <div class="info-item"><a href="https://thedubaimall.com/" target="_blank">The Dubai
+                                    Mall</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://cdn.squaremeal.ae/article/29/images/best-restaurants-in-dubai-mall-bebabel_27052022021710.jpg?w=913&auto=format%2Ccompress"
+                        alt="Strefa gastronomiczna w centrum handlowym" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Lunch w The Dubai Mall</h4>
+                        <p>Wybierz spośród wielu opcji gastronomicznych. Na poziomie LG (Nizsze piętro) znajduje
+                            się duży strefa restauracyjna z ogromnym wyborem.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 13:30 - 14:30</div>
+                            <div class="info-item"><strong>Transport:</strong> Pieszo</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">40 - 60 AED / ~40 -
+                                    59 PLN</span></div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://media.istockphoto.com/id/183371461/pl/zdj%C4%99cie/miasto-%C5%9Bwiat%C5%82a-w-dubaju-na-zach%C3%B3d-s%C5%82o%C5%84ca.jpg?s=612x612&w=0&k=20&c=Q6a9p5soKgG1Q3nCKcdW-5N47wwut2vaXc-F5WtWu0U="
+                        alt="Burj Khalifa o zachodzie słońca, widok z dołu" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Burj Khalifa "At The Top" (KONIECZNA REZERWACJA!)</h4>
+                        <p>Wjedź na najwyższy budynek świata, aby podziwiać panoramiczne
+                            widoki. Slot 16:30-17:00 jest idealny, aby zobaczyć Dubaj za dnia, o zachodzie słońca i
+                            nocą. Wejście znajduje się na poziomie LG w Dubai Mall.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 16:00 - 18:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Pieszo</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">179 - 259 AED / ~177
+                                    - 256 PLN (Bilet)</span></div>
+                            <div class="info-item"><a href="https://www.burjkhalifa.ae/en/tickets/"
+                                    target="_blank">Trzeba zarezerwowac bilety z wyprzedzeniem
+                                        tutaj</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://i.ytimg.com/vi/cRiGIRBcwG0/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgVShJMA8=&rs=AOn4CLApw4yqX4Q3DwpQij1xgutSLL3CdA"
+                        alt="Pokaz Fontann Dubajskich nocą z Burj Khalifa w tle" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Pokaz Fontann Dubajskich i Kolacja</h4>
+                        <p>Obejrzyj spektakularne pokazy fontann, które odbywają się co 30 minut od 18:00. Zjedz kolację
+                            w restauracji z widokiem na fontanny lub w <strong>Time Out Market</strong> w Souk Al Bahar
+                            (po drugiej stronie mostu).</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> Od 18:30</div>
+                            <div class="info-item"><strong>Transport:</strong> Pieszo</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">50 - 200 AED / ~50 -
+                                    198 PLN (Kolacja)</span></div>
+                            <div class="info-item"><a href="https://www.timeoutmarket.com/dubai/" target="_blank">Time
+                                    Out Market</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://i.ytimg.com/vi/oAICHqSravE/maxresdefault.jpg"
+                        alt="Wnętrze nowoczesnego pociągu metra w Dubaju" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Powrót do Hotelu</h4>
+                        <p>Wróć przez centrum handlowe na stację metra. Jedź Czerwoną Linią do Mall of the Emirates.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 21:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Metro (Czerwona Linia)</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">(w cenie biletu
+                                    powrotnego)</span></div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="day-section">
+            <div class="day-title">
+                Dzień 5: Palma Jumeirah i Burj Al Arab
+                <span>Sobota, 24 Stycznia 2026</span>
+            </div>
+            <div class="activity-card-grid">
+                <div class="activity-card">
+                    <img src="https://rockyrealestate.com/wp-content/uploads/2022/03/2-palm-jumeirah.png.webp"
+                        alt="Tramwaj w Dubaju jadący wzdłuż promenady" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Podróż na Palmę Jumeirah</h4>
+                        <p>1. Metro (Czerwona Linia) na południe do <strong>Sobha Realty</strong>.<br>2. Przesiadka na
+                            <strong>Tramwaj Dubajski</strong> do stacji <strong>Palm Jumeirah</strong>.<br>3. Przejdź do
+                            stacji kolejki <strong>Palm Gateway</strong>.
+                        </p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 10:00 - 11:30</div>
+                            <div class="info-item"><strong>Transport:</strong> Metro + Tramwaj</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~10 AED / ~10
+                                    PLN</span></div>
+                            <div class="info-item"><a href="https://www.palmmonorail.com/" target="_blank">Palm
+                                    Monorail</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://www.visitdubai.com/-/media/gathercontent/poi/p/palm-monorail/palm-monorail-dubai-eventorganiser-aug-2024.jpg"
+                        alt="Hotel Atlantis The Palm z parkiem wodnym Aquaventure" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Palm Monorail do Atlantis The Palm</h4>
+                        <p>Przejedź się kolejką Palm Monorail (użyj karty Nol) do ostatniego przystanku. Ciesz się
+                            wspaniałimi widokami na "liściu" palmy i zrób zdjęcia kultowego hotelu Atlantis, The Palm.
+                        </p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 11:30 - 13:30</div>
+                            <div class="info-item"><strong>Transport:</strong> Palm Monorail</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">30 AED / ~30 PLN (w
+                                    obie strony)</span></div>
+                            <div class="info-item"><a href="https://share.google/57tfL84W89BxgCYrz" target="_blank">Atlantis,
+                                    The Palm</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://www.propertyfinder.ae/blog/wp-content/uploads/2024/11/shutterstock_1122166829-1-1-1-1-1.jpg"
+                        alt="Palm West Beach z restauracjami i panoramą Dubaju" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Lunch na Palm West Beach</h4>
+                        <p>Wróć kolejką jeden przystanek do <strong>Al Ittihad Park</strong> i przejdź na Palm West
+                            Beach. Modne restauracje na plaży oferują wspaniałe widoki na panoramę Dubaju.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 13:30 - 15:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Monorail + Pieszo</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">120 - 200 AED / ~119
+                                    - 198 PLN</span></div>
+                            <div class="info-item"><a href="https://share.google/tAliAVpNrTBNn6779"
+                                    target="_blank">Palm West Beach</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://www.shutterstock.com/image-photo/dubai-united-arab-emirates-umm-600nw-1021806718.jpg"
+                        alt="Burj Al Arab o zachodzie słońca widziany z plaży" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Zachód Słońca na Plaży Umm Suqeim (Widok na Burj Al Arab)</h4>
+                        <p>Udaj się na publiczną plażę, aby zrobić ikoniczne zdjęcia żaglowego hotelu <strong>Burj Al
+                                Arab</strong> na tle zachodzącego słońca.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 15:30 - 17:30</div>
+                            <div class="info-item"><strong>Transport:</strong> Uber/Careem z Palm West Beach do "Umm
+                                Suqeim Beach".</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">30 - 45 AED / ~30 -
+                                    45 PLN</span></div>
+                            <div class="info-item"><a href="https://www.google.com/maps/place/Umm+Suqeim+Beach"
+                                    target="_blank">Mapa Plaży Umm Suqeim</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://www.globtroter.pl/zdjecia/zjednoczone_emiraty_arabskie/b296894_zjednoczone_emiraty_arabskie_dubaj_dubaj.jpg"
+                        alt="Ulica Dubaju nocą z widocznymi światłami" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Powrót do Hotelu i Kolacja</h4>
+                        <p>Uber/Careem to najwygodniejszy sposób powrotu do hotelu z plaży. Zjedz kolację w Al Barsha.
+                        </p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 18:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Uber/Careem</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">30 - 50 AED / ~30 -
+                                    50 PLN (Uber) <br>+ 50-100 AED / ~50-99 PLN (Kolacja)</span></div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="day-section">
+            <div class="day-title">
+                Dzień 6: Pustynne Safari
+                <span>Niedziela, 25 Stycznia 2026</span>
+            </div>
+            <div class="activity-card-grid">
+                <div class="activity-card">
+                    <img src="https://static.thatsup.co/content/img/article/23/dec/guide-to-hotel-breakfast-in-london.jpg"
+                        alt="Basen hotelowy z leżakami i palmami" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Sniadanie w hotelu</h4>
+                        <p> Sniadanie i relaks nad basenem.
+                            Zjedzcie lekki lunch w pobliżu hotelu, aby przygotować się na pustynne safari.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> Rano - 13:00</div>
+                            <div class="info-item"><strong>Transport:</strong> n/a</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong><span class="cost">Lunch: ~40-60 AED /
+                                    ~40-59 PLN</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=2/tour_img/5cfb064a8a16a3b052418f7279508f35e2842450ee193ca5b168b98ceea473a6.jpeg"
+                        alt="Samochód 4x4 na wydmach o zachodzie słońca podczas pustynnego safari"
+                        class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Pustynne Safari</h4>
+                        <p>Firma turystyczna odbierze was z hotelu. Doświadczycie jazdy 4x4 po wydmach, mozecie
+                            przejechać
+                            się na wielbłądach, będzie tez kolacja z grilla i pokazy na żywo w
+                            obozie w stylu beduińskim.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 14:00 - 21:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Odbiór/Dowóz przez organizatora (w cenie
+                                pakietu)</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">PREZENT</span></div>
+                            <div class="info-item"><a
+                                    href="https://www.getyourguide.com/dubai-l173/dubai-safari-quad-bike-camel-ride-and-more-t188052?ranking_uuid=befae1aa-4518-48fb-b37c-12d75367c716&date_from=2026-01-25&date_to=2026-01-25&_pc=1,2"
+                                    target="_blank">Szczegóły Safari Tutaj</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=2/tour_img/ac30ce8b28403a97.jpeg"
+                        alt="Kemping beduiński nocą pod gwiazdami" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Powrót do Hotelu</h4>
+                        <p>Firma turystyczna odwiezie Cię z powrotem do hotelu.
+                        </p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 21:00 - 21:30</div>
+                            <div class="info-item"><strong>Transport:</strong> Dowóz przez organizatora (w cenie)</div>
+                            <div class="info-item"><strong></strong></div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="day-section">
+            <div class="day-title">
+                Dzień 7: Wycieczka do Abu Zabi
+                <span>Poniedziałek, 26 Stycznia 2026</span>
+            </div>
+            <div class="activity-card-grid">
+                <div class="activity-card">
+                    <img src="https://media.istockphoto.com/id/1318141602/photo/an-aerial-shot-of-kite-beach-in-dubai-filled-with-kite-surfers-and-their-colorful-kites.jpg?s=612x612&w=0&k=20&c=OecUSqTwpRLW7mtL45RylOynutTnQuXsVDvaO1OW-ac="
+                        alt="Nowoczesny autobus międzymiastowy na autostradzie" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Plażowanie na Kite Beach</h4>
+                        <p>Udajcie się na słynną plażę Kite Beach. Opalanie sie, kąpiel w morzu i obserwowanie
+                            kitesurferów.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 11:30 - 16:00</div>
+                            <div class="info-item"><strong>Transport:</strong><strong>1. Uber/Careem:</strong>
+                                Najłatwiej i najszybciej, ok. 15-20 min jazdy.<br><strong>2. Autobus:</strong> Podejdź
+                                15 min do dworca autobusowego przy Mall of the Emirates. Wsiądź w autobus nr
+                                81 (kierunek: The Dubai Mall). Wysiądź na przystanku "Manara, Enoc 1" i
+                                przejdź ok. 10-15 min pieszo na plażę.</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~25-35 AED / ~25-35
+                                    PLN (Uber)</span><br><span class="cost">~3-5 AED / ~3-5 PLN (Autobus)</span></div>
+                            <div class="info-item"><a href="https://www.google.com/maps/place/Kite+Beach"
+                                    target="_blank">Mapa Kite Beach</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://thumbs.dreamstime.com/b/food-trucks-kite-beach-jumeirah-dubai-uae-food-trucks-kite-beach-jumeirah-dubai-uae-279833586.jpg"
+                        alt="Lokalny autobus w Abu Zabi" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Lunch z Food Trucka</h4>
+                        <p>Kite Beach słynie ze świetnych food trucków. Spróbujcie słynnych burgerów "Salt" lub
+                            wybierzcie coś innego z bogatej oferty. Niedrogo, jedzone na plaży.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 13:30 - 14:30</div>
+                            <div class="info-item"><strong>Transport:</strong> Pieszo</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~40 - 70 AED / ~40 -
+                                    69 PLN</span></div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://www.travelvui.com/wp-content/uploads/2016/08/Souk-Madinat-Jumeirah-Dubai-860x573.jpg"
+                        alt="Wielki Meczet Szejka Zajida, imponująca architektura z kopułami"
+                        class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Pożegnalna Kolacja w Souk Madinat Jumeirah</h4>
+                        <p>Po powrocie do hotelu i odświeżeniu się, wybierzcie się na wyjątkową, pożegnalną kolację do
+                            Souk Madinat Jumeirah. To magiczne miejsce z kanałami (nazywane "Wenecją Dubaju"), targiem i
+                            restauracjami z widokiem na Burj Al Arab.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 18:30 - 21:00</div>
+                            <div class="info-item"><strong>Transport:</strong><strong>1. Uber/Careem:</strong>
+                                Bardzo blisko, ok. 10-15 min jazdy.<br><strong>2. Autobus:</strong> Z dworca Mall of the
+                                Emirates autobus nr 81. Wysiądź na przystanku "Burj Al Arab Hotel" i
+                                przejdź ok. 10 min pieszo.</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~25 AED / ~25 PLN
+                                    (Uber)<br>+ 150-250 AED / ~149-248 PLN (Kolacja)</span></div>
+                            <div class="info-item"><a
+                                    href="https://www.google.com/maps/search/Visit%20the%20Souk%20Madinat%20Jumeirah,%20Dubai,%20United%20Arab%20Emirates"
+                                    target="_blank">Souk Madinat</a></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Day 8 -->
+        <div class="day-section">
+            <div class="day-title">
+                Dzień 8: Ostatnie Pamiątki i Wylot
+                <span>Wtorek, 27 Stycznia 2026</span>
+            </div>
+            <div class="activity-card-grid">
+                <div class="activity-card">
+                    <img src="https://d337pdvlg6sju5.cloudfront.net/media/images/properties/united-kingdom/london/strand-palace/haxellsteasersmall.png"
+                        alt="Stylowe śniadanie hotelowe" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Śniadanie i Wymeldowanie</h4>
+                        <p>Ostatnie śniadanie w hotelu. Wymelduj się z hotelu i zostaw bagaż w przechowalni
+                            bagażu.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 09:00 - 11:00</div>
+                            <div class="info-item"><strong>Transport:</strong> N/A</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> N/A</div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://cdn2.wingie.com/uploads/f_webp,s_500x300,q_60,fit_cover/gold_souk_03f5acf14a.jpg"
+                        alt="Suszone daktyle i przyprawy na tradycyjnym targu" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Ostatnie Pamiątki w Mall of the Emirates</h4>
+                        <p>Spacer do Mall of the Emirates. Duży supermarket <strong>Carrefour</strong> w galerii to
+                            doskonałe miejsce na niedrogie lokalne daktyle, przyprawy i czekoladki.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 11:00 - 14:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Pieszo</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">~100-200 AED /
+                                    ~99-198 PLN (Pamiątki)</span></div>
+                            <div class="info-item"><a
+                                    href="https://www.carrefouruae.com/mafuae/en/search?currentPage=1&keyword=dubai+chocolate"
+                                    target="_blank">Carrefour UAE/ Dubajska Czekolada</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/restaurant-in-MOE-1024x640.jpg"
+                        alt="Elegancka kawiarnia w nowoczesnym otoczeniu" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Ostatni Lunch</h4>
+                        <p>Zjedz ostatni lunch w strefie gastronomicznej Mall of the Emirates.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 14:00 - 15:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Pieszo</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">40 - 60 AED / ~40 -
+                                    59 PLN</span></div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://www.gehotels.com/wp-content/uploads/2023/10/20220907-IMG_2684-1.webp"
+                        alt="Lobby hotelowe z eleganckimi meblami i walizkami" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Odbiór Bagażu</h4>
+                        <p>Wróć do hotelu, aby odebrać swój przechowywany bagaż.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 15:30</div>
+                            <div class="info-item"><strong>Transport:</strong> Pieszo</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> N/A</div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK4gAj23QEmDgOWlL8yBqgY80G_jmiwHEmFg&s"
+                        alt="Nowoczesny terminal lotniska Zayed International Airport" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4><strong>Podróż na Lotnisko Zayed International (AUH)</strong></h4>
+                        <p><strong>Ważne!</strong> Twój lot jest o 20:50. Na AUH musisz być do 18:50 (2 godziny przed).
+                            Jazda zajmuje 1.5-2 godziny. <strong>Wyjedź odpowiednio wcześnie, aby uwzględnić
+                                popołudniowe korki wyjeżdżając z Dubaju.</strong></p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 16:00 - 18:00</div>
+                            <div class="info-item"><strong>Transport:</strong> Uber/Careem lub Metro+Autobus
+                            </div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> <span class="cost">300-450 AED /
+                                    ~297-446 PLN (Uber)</span><br><span class="cost">~30 AED / ~30 PLN
+                                    (Metro+Bus)</span></div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://thumbs.dreamstime.com/b/samolot-odlatuj%C4%85cy-o-zachodzie-s%C5%82o%C5%84ca-boeing-odlatuje-na-lotnisku-los-angeles-186354809.jpg"
+                        alt="Samolot odlatujący o zachodzie słońca" class="activity-card-image">
+                    <div class="activity-card-content">
+                        <h4>Lotnisko i Wylot</h4>
+                        <p>Odprawa na lot powrotny do Krakowa.</p>
+                        <div class="activity-card-info">
+                            <div class="info-item"><strong>Godzina:</strong> 18:30 - 20:50</div>
+                            <div class="info-item"><strong>Transport:</strong> N/A</div>
+                            <div class="info-item"><strong>Szac. Koszt:</strong> N/A</div>
+                            <div class="info-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
